@@ -1,0 +1,66 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+########################################
+## This is a wrapper tool that can    ##
+## help my buddies to easily manage   ##
+## remotely controllable server       ##
+## through your own personal network. ##
+########################################
+
+
+source "$HOME/.config/scripts/retrieve-information.sh"
+
+declare -r -x DISPLAY=":1"
+declare -r ENTERED_ARGUMENT="$1"
+declare -i RINGTONE_VOLUME="${2:-${PRELOAD_PROPERTIES[1]}}"
+
+case "$ENTERED_ARGUMENT" in
+	"help") {
+		declare -r NAME="$(basename $0)"
+		echo ""
+		echo ""
+		echo "Usage: $NAME <start (int)[Volume]|stop>"
+		echo ""
+		echo "A tool for launching your pocket computer in the go."
+		echo ""
+		echo "Tip: Use '$NAME start 0' to set the arrival sound muted."
+		echo "Tip: You can input any number of this range: (1..${PRELOAD_PROPERTIES[1]})"
+		echo ""
+		echo -e "Some words: Have not you given a star? \033[96mHurry up!\033[0m Your support comes to me as \033[95mA Great MOTIVATION\033[0m!"
+		echo ""
+		echo ""
+		echo -e "Homepage: \033[1;4;94mhttps://www.github.com/devwithsd0/termux-desktop\033[0m"
+		echo ""
+		echo ""
+	};;
+	"start") {
+		if [ "$RINGTONE_VOLUME" -lt 0 ] || [ "$RINGTONE_VOLUME" -gt "${PRELOAD_PROPERTIES[1]}" ]; then
+			unset RINGTONE_VOLUME
+		fi
+		if [ -n "$(pidof Xvnc)" ]; then
+			echo "An old process found which is currently running."
+			exit 1
+		else
+			vncserver -localhost
+			sleep "${PRELOAD_PROPERTIES[2]}"
+			if [ ! "${RINGTONE_VOLUME:-${PRELOAD_PROPERTIES[1]}}" = 0 ]; then
+				eval notify-send "'${NOTIFICATION_MESSAGE[0]}'" "'${NOTIFICATION_MESSAGE[1]}'" -u low "${NOTIFICATION_MESSAGE[2]}"
+				play -v "${RINGTONE_VOLUME:-${PRELOAD_PROPERTIES[1]}}" "${PRELOAD_PROPERTIES[0]}"
+			fi
+			echo "New session has launching just now, go and check out!"
+		fi
+	};;
+	"stop") {
+		vncserver -kill "$DISPLAY" || {
+			echo "Something went wrong before. Trying to stopping forcefully..."
+			killall Xvnc
+			exit 1
+		}
+		rm "$HOME/.vnc/localhost:1.log"
+		echo "Live session terminated successfully!"
+	};;
+	*) {
+		echo "Invalid argument detected: '$ENTERED_ARGUMENT'"
+		exit 2
+	};;
+esac
