@@ -252,6 +252,7 @@ case "$1" in
 		fi
 		echo "Not continued."
 		echo "Left everything intact."
+		exit
 	};;
 	*) {
 		echo ""
