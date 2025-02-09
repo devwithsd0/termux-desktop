@@ -19,7 +19,7 @@ First have a look on some pictures to choice.
 
 ![How is it?](https://www.github.com/devwithsd0/termux-desktop/raw/refs/heads/master/Demonstrations/2025-02-06-202217_1024x768_scrot.png)
 
-> As current release was mainly focused on optimizing, I've tried as much as possible to make it user-friendly. But could contain feature lack. Feel free to open an issue.
+> As current release was actually focused on optimizing, I've tried as much as possible to make it user-friendly. But could contain feature lack. Feel free to open an issue.
 
 
 # Requirements
@@ -30,3 +30,21 @@ First have a look on some pictures to choice.
 > Termux from Play Store is unmaintained due to API related problems and not recommended.
 - [VNC Viewer](https://apkpure.com/vnc-viewer-remote-desktop/com.realvnc.viewer.android)
 > You can also use alternatives from Play Store like bVNC Pro or even noVNC etc.
+
+
+# Installation
+Step 1: Update your repository list.
+```bash
+pkg --check-mirror upgrade -y
+```
+Step 2: Download `wget` and then the main script.
+```bash
+pkg install wget -y
+```
+```bash
+wget https://www.github.com/devwithsd0/termux-desktop/raw/refs/heads/master/setup.sh
+```
+Step 3: Start the mission of installation.
+```bash
+bash setup.sh install
+```
