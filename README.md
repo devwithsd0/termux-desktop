@@ -48,3 +48,28 @@ Step 3: Start the mission of installation.
 ```bash
 bash setup.sh install
 ```
+After that, just take a cupcake and it'll do it's job.
+
+
+# Uninstallation
+I never want to loss you! But if your mind makes the decision, then I've nothing to do.
+```bash
+bash setup.sh uninstall
+```
+
+
+# Usage
+To start, run this command:
+```bash
+xsmgmt start
+```
+To stop, run this command:
+```bash
+xsmgmt stop
+```
+
+
+# Thanks!
+Hope you like it. This little work is standing only on your support.
+
+Don't forget to leave your 🌟. Till then, GOODBYE!
