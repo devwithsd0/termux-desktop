@@ -27,6 +27,6 @@ First have a look on some pictures to choice.
 - an Android 7+ phone.
 - 512 MB of RAM & 896 MB of ROM (minimum).
 - Termux 0.118.1+ [(GitHub version)](https://www.apkmirror.com/apk/fredrik-fornwall/termux-github-version) / [(F-Droid version)](https://f-droid.org/en/packages/com.termux)
-> Termux from Google Play Store is unmaintained due to API related problems and not recommended.
+> Termux from Play Store is unmaintained due to API related problems and not recommended.
 - [VNC Viewer](https://apkpure.com/vnc-viewer-remote-desktop/com.realvnc.viewer.android)
-> You can also use alternatives from Google Play Store like bVNC Pro, xserver-xsdl etc.
+> You can also use alternatives from Play Store like bVNC Pro or even noVNC etc.
