@@ -246,7 +246,7 @@ case "$1" in
 				pkg uninstall --purge alacritty gvfs kitty libnotify lxappearance lxqt-about lxqt-config lxqt-notificationd lxqt-panel lxqt-qtplugin openbox pavucontrol-qt pcmanfm-qt python-tkinter scrot sox tigervnc xfce4-battery-plugin xfce4-clipman-plugin xfce4-mailwatch-plugin xfce4-notifyd xfce4-places-plugin xfce4-screenshooter xfce4-taskmanager xfce4-wavelan-plugin xfce4-whiskermenu-plugin xfdesktop xfwm4 -y
 				apt autoremove --purge -y
 				echo -e "[\033[93m*\033[0m] Permanently deleting..."
-				rm -r -v "$HOME/.config" "$HOME/.icons" "$HOME/.local" "$HOME/.vnc" "$HOME/.gtkrc-2.0" "$PREFIX/share/icons" "$PREFIX/bin/xsmgmt"
+				rm -I -r -v "$HOME/.config" "$HOME/.icons" "$HOME/.local" "$HOME/.vnc" "$HOME/.gtkrc-2.0" "$PREFIX/share/icons" "$PREFIX/bin/xsmgmt"
 				echo -e "[\033[94m=\033[0m] Hope to see you again. Thanks for using. Byee!"
 				exit
 			fi
